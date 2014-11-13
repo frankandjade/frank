@@ -1,0 +1,153 @@
+git remote -v ---------查看远程参仓库地址
+
+************************************远程操作**************************************
+
+git remote show origin  ------显示远程信息 
+
+git push origin :testing  删除远程分支
+git push origin --delete <branchName>
+
+git branch -a   -----查看远程分支
+
+******************************************存储当前工作**************************************
+
+git stash -----当前工作现场“储藏”起来（要先提交到本地）
+
+$ git stash list    ----  查看工作现场
+stash@{0}: WIP on dev: 6224937 add merge
+
+$ git stash apply stash@{0}  ---    恢复工作现场
+
+git stash drop  stash@{0} ----- 删除现场
+
+git stash pop  stash@{0}-----恢复现场并删除
+
+**********************************************************************************************向 Git 进行自我介绍
+$ git config --global user.name "Your Name Comes Here" 
+$ git config --global user.email you@yourdomain.example.com
+
+
+git status ---查看哪些文件被修改、将要被提交的文件等等
+
+$ git status
+# On branch master
+# Changes to be committed:   ---将被提交
+#   (use "git reset HEAD <file>..." to unstage)  ---取消提交的文件
+#
+#       modified:   readme.txt    ---改动的文件
+# Untracked files:  ---未添加了
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       LICENSE  ----新的文件
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+$ git status
+# On branch master
+nothing to commit (working directory clean)    ----没有需要提交的修改
+
+
+
+git diff <file>(readme.txt) --- 查看具体修改了什么
+		---：历史版本
+		+++：当前版本
+
+
+$ git log --pretty=oneline   ---->查看历史 ，显示版本号commitID与更新内容（commit：快照）
+3628164fb26d48395383f8f31179f24e0882e1e0 append GPL
+ea34578d5496d7dd233c827ed32a8cd576c5ee85 add distributed
+cb926e7ea50ad11b8f9e909c05226233bf755030 wrote a readme file
+
+
+HEAD：当前版本，确切的说是当前分支
+HEAD^：上一个版本
+HEAD^^:前一个版本
+....
+HEAD~100：前100个版本
+
+git reset --hard HEAD^  ----回退到上一个版本
+
+git reset HEAD <file>  ----取消add,接着用 git checkout -- readme.txt  本次修改删除
+
+$ git reset --hard 3628164.....（commitID）---- 根据版本号回退，写前几个，git会自动查询
+HEAD is now at 3628164 append GPL
+
+
+$ cat readme.txt ----查看内容
+
+
+
+$ git reflog   -----查看历史log信息（回退之后想再更新回来，可利用reflog查询历史记录：版本号！）
+					再根据git reset --hard commitID  回复
+ea34578 HEAD@{0}: reset: moving to HEAD^
+3628164 HEAD@{1}: commit: append GPL
+ea34578 HEAD@{2}: commit: add distributed
+cb926e7 HEAD@{3}: commit (initial): wrote a readme file
+
+
+提交时：
+第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；（.git/index）
+第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。(master)
+
+
+
+rm test.txt  ----工作区删除文件
+git rm test.txt   ----版本库删除文件
+
+
+
+
+
+
+$ git remote add origin git@github.com:michaelliao/learngit.git
+---->  origin:远程库名（可以自己定义，最好使用默认）
+
+git push -u origin master  --->本地仓库上传远程库 master：创建仓库是自动创建的分支
+				-u  第一次上传，建立关联 ，之后不需要
+
+
+github  勾选readme再
+$ git clone git@github.com:michaelliao/gitskills.git
+
+
+**************************创建dev分支，然后切换到dev分支：***********************
+$ git checkout -b dev
+---->  -b：表示创建并切换
+
+上一句等价于：
+$ git branch dev  ---创建分支
+$ git checkout dev  ---切换分支
+
+
+$ git branch ---查看当前分支
+
+
+$ git merge dev---合并分支到当前分支（注意先切换分支：git checkout master）
+
+git branch -d <name>----删除分支
+
+
+git log --graph   ---->可以看到分支合并图
+
+git log --abbrev-commit  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
