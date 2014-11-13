@@ -9,6 +9,8 @@ git push origin --delete <branchName>
 
 git branch -a   -----查看远程分支
 
+git remote prune origin （同步远端已删除分支）
+
 ******************************************存储当前工作**************************************
 
 git stash -----当前工作现场“储藏”起来（要先提交到本地）
