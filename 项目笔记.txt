@@ -1,0 +1,48 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+$(function() {
+	$("#applySubmit").live("click", function() {
+		//TODO: 校验表单
+		
+		if (!confirm("您确定要修改银行资料吗？")){
+			return false;
+		}
+		//提交表单
+		$("#bankInfoForm").submit();
+	});
+});
+
+复制到剪贴板：
+$(function(){
+	
+	$("ul li").each(function() {
+		var link = $(this).attr("data-url");
+		var id = $(this).attr("id");
+		copyLink(link, id);
+	})
+});
+function copyLink(link, id) {
+	var clip = new ZeroClipboard.Client();
+	clip.setHandCursor( true );
+	clip.setCSSEffects( true );
+	clip.addEventListener( 'mouseDown', function(client){
+	  clip.setText(link);
+	});
+	clip.addEventListener( 'complete', function(){alert('复制成功');});
+	clip.glue(id);
+}
+
+
+${pageContext.request.contextPath}:绝对路径
+<script src="${pageContext.request.contextPath}/resources/bizJs/perfect_index.js"></script>
+
+
+将页面名字作为参数@PathVariable("name")
+@RequestMapping(value = "/{depositType}.html", method = RequestMethod.GET)
+	public String apply(Model model, @PathVariable("depositType") int depositType, HttpSession session) {}
+
+格式化生成字符串：
+String.format("%s?userid=%s&type=%s", LIVE_PREFX , SessionUtils.getLoginId(session), i+"")
+（%s:字符串，%c:单个字符）
+

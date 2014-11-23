@@ -1,0 +1,40 @@
+ssh root@192.168.0.111
+master
+
+学习unix：
+Solaris X86
+OpenBSD
+ 
+十大发行版之三：
+redhat(redhat centos)、debain(ubuntu)、suse(open suse)
+
+linux指令：
+uname -a   查看kernel版本 OS 位数 32 64
+cat /etc/issue  查看Linux发行版名称和版本
+ps -ef  查看进程
+dmidecode  查看电脑信息，是否是虚拟机（product name）
+
+
+1：fdisk -l 查看硬盘  (/dev/sdb)
+	fdisk /dev/sdb  在指定硬盘建分区命令
+		(m n d w)
+	fdisk -l /dev/sdb 查看该硬盘下建立了多少分区
+2：mfks 格式化  (mkfs.ext4 /dev/sdb1)
+3：建立目录 作为分区(c盘d盘)
+4：mount 挂载 （相当于生成c盘d盘）   ----umount 目录路径(取消挂载)
+5：scp stu@192.168.56.1:/local/tools/frank.txt .(该用户在host主机上有stu权限)
+
+rm -rf 强制删除（不要轻易使用）
+	
+chown -R username:froupName file|folderName  设置权限 (-R递归)
+
+下载vi命令守则
+
+
+
+	
+
+
+
+
+
