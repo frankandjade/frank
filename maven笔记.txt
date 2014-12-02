@@ -1,0 +1,12 @@
+mvn compile  编译
+
+mvn test 
+
+mvn clean  清空target文件夹
+
+mvn package  把maven项目打成jar包
+
+mvn install  
+
+mvnrepository.com
+
