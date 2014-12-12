@@ -6,14 +6,14 @@ public class ThreadDemo extends Thread {
 		this.name = name;
 	}
 
-	@Override
+	
 	public synchronized void run() {
 
 		for (int i = 0; i < 10000; i++) {
 			 System.out.println(name + " : :" + i);
 		}
 		
-		super.run();
+		//super.run();
 	}
 
 	public void sop(String param) {
