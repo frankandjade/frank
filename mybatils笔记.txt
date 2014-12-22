@@ -1,0 +1,10 @@
+orm : 对象关系映射
+
+orm工具的基本思想
+无论是用过的hibernate,mybatis,你都可以法相他们有一个共同点：
+1. 从配置文件(通常是XML配置文件中)得到 sessionfactory.
+2. 由sessionfactory  产生 session
+3. 在session 中完成对数据的增删改查和事务提交等.
+4. 在用完之后关闭session 。
+
+5. 在java 对象和 数据库之间有做mapping的配置文件，也通常是xml 文件。
